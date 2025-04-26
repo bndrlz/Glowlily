@@ -1,0 +1,121 @@
+/* Загальні стилі */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #fff0f5;
+    color: #333;
+  }
+  
+  /* Хедер */
+  .cart-header {
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+  }
+  
+  .cart-header .back-button {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  
+  /* Контейнер */
+  .cart-container {
+    padding: 40px 20px;
+  }
+  
+  /* Сітка товарів */
+  .cart-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+  }
+  
+  /* Картка товару */
+  .product-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s;
+  }
+  
+  .product-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .product-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+  }
+  
+  .product-info {
+    padding: 20px;
+  }
+  
+  .product-name {
+    font-size: 20px;
+    color: #e91e63;
+    margin-bottom: 10px;
+  }
+  
+  .product-description {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 10px;
+  }
+  
+  .product-price {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  /* Підсумок */
+  .cart-summary {
+    background: white;
+    padding: 30px 20px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+  
+  .cart-summary p {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+  
+  .total-price {
+    color: #e91e63;
+    font-weight: bold;
+  }
+  
+  .checkout-button {
+    background: #e91e63;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .checkout-button:hover {
+    background: #d81b60;
+  }
+  
+  /* Адаптив */
+  @media (max-width: 768px) {
+    .cart-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
