@@ -1,41 +1,35 @@
-<!DOCTYPE html><html lang="uk">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LilyGlow</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <header class="header">
-      <div class="header-left">
-        <form id="searchForm" class="search-container" role="search">
-          <input class="form-control" type="search" placeholder="Пошук..." aria-label="Search">
-          <button class="btn-search" type="submit">Знайти</button>
-        </form>
-      </div>
-    
-      <div class="header-center">
-        <h1 class="logo">LilyGlow</h1>
-      </div>
-    
-      <div class="header-right">
-        <a href="#" class="header-icon favorites" title="Улюблене">
-          <i class="fas fa-heart"></i>
-        </a>
-        <a href="#" class="header-icon cart" title="Кошик">
-          <i class="fas fa-shopping-cart"></i>
-        </a>
-      </div>
-    </header>
-    
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LilyGlow</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-    <header>
-  
+<header class="header">
+  <div class="header-left">
+    <form id="searchForm" class="search-container" role="search">
+      <input class="form-control" type="search" placeholder="Пошук..." aria-label="Search">
+      <button class="btn-search" type="submit">Знайти</button>
+    </form>
+  </div>
+
+  <div class="header-center">
+    <h1 class="logo">LilyGlow</h1>
+  </div>
+
+  <div class="header-right">
+    <a href="cart.html" class="cart-button" title="Перейти в кошик">
+      <i class="fas fa-shopping-cart"></i>
+      (<span id="cart-count">0</span>)
+    </a>
+  </div>
+</header>
+
+</body>
 <!-- Категорії - секція з фоновим зображенням -->
 <section class="category-hero">
     <h2>Обери свою красу — у LilyGlow!</h2>
@@ -72,13 +66,9 @@
     <div class="product-image-wrapper">
       <img src="img/bioderma Sensibio H20.jpg" alt="Товар" class="product-image1">
       <div class="overlay-buttons">
-        <button class="add-to-favorites" onclick="addToFavorites('Product Name')">
-          <i class="fas fa-heart"></i>
-        </button>
         <button class="add-to-cart">
           <i class="fas fa-shopping-cart"></i>
         </button>
-
       </div>
     </div>
     <p class="product-description">Міцелярна вода для чутливої шкіри</p>
@@ -90,9 +80,6 @@
     <div class="product-image-wrapper">
       <img src="img/bioderma Hydrabio Tonique.jpg" alt="Товар" class="product-image2">
       <div class="overlay-buttons">
-        <button class="add-to-favorites" onclick="addToFavorites('Product Name')">
-          <i class="fas fa-heart"></i>
-        </button>
         <button class="add-to-cart">
           <i class="fas fa-shopping-cart"></i>
         </button>
@@ -108,13 +95,9 @@
     <div class="product-image-wrapper">
       <img src="img/Bioderma Hydrabio Gel-Creme.jpg" alt="Товар" class="product-image3">
       <div class="overlay-buttons">
-        <button class="add-to-favorites" onclick="addToFavorites('Product Name')">
-          <i class="fas fa-heart"></i>
-        </button>
         <button class="add-to-cart">
           <i class="fas fa-shopping-cart"></i>
         </button>
-        
       </div>
     </div>
     <p class="product-description">Легкий крем для зволоження шкіри</p>
@@ -125,13 +108,9 @@
     <div class="product-image-wrapper">
       <img src="img/Bioderma Hydrabio Serum.jpg" alt="Товар" class="product-image4">
       <div class="overlay-buttons">
-        <button class="add-to-favorites" onclick="addToFavorites('Product Name')">
-          <i class="fas fa-heart"></i>
-        </button>
         <button class="add-to-cart">
           <i class="fas fa-shopping-cart"></i>
         </button>
-        
       </div>
     </div>
     <p class="product-description"> Інтенсивна зволожуюча сироватка </p>
@@ -143,13 +122,9 @@
     <div class="product-image-wrapper">
       <img src="img/Bioderma photoderm Max SPF.jpg" alt="Товар" class="product-image5">
       <div class="overlay-buttons">
-        <button class="add-to-favorites" onclick="addToFavorites('Product Name')">
-          <i class="fas fa-heart"></i>
-        </button>
-        <button class="add-to-cart">
+      <button class="add-to-cart">
           <i class="fas fa-shopping-cart"></i>
         </button>
-        
       </div>
     </div>
     <p class="product-description">Сонцезахисний крем для обличчя </p>
@@ -160,13 +135,9 @@
     <div class="product-image-wrapper">
       <img src="img/bioderma Sensibio Mask.jpg" alt="Товар" class="product-image6">
       <div class="overlay-buttons">
-        <button class="add-to-favorites" onclick="addToFavorites('Product Name')">
-          <i class="fas fa-heart"></i>
-        </button>
         <button class="add-to-cart">
           <i class="fas fa-shopping-cart"></i>
         </button>
-        
       </div>
     </div>
     <p class="product-description"> Заспокійлива маска для обличчя</p>
@@ -182,13 +153,9 @@
     <div class="product-image-wrapper">
       <img src="img/Maybelline Fit Me Primer.jpg" alt="Товар" class="product-image7">
       <div class="overlay-buttons">
-        <button class="add-to-favorites" onclick="addToFavorites('Product Name')">
-          <i class="fas fa-heart"></i>
-        </button>
         <button class="add-to-cart">
           <i class="fas fa-shopping-cart"></i>
         </button>
-        
       </div>
     </div>
     <p class="product-description"> База під макіяж для матового ефекту </p>
@@ -200,9 +167,6 @@
     <div class="product-image-wrapper">
       <img src="img/Maybelline Fit Me Matte + Poreless Foundation.jpg" alt="Товар" class="product-image8">
       <div class="overlay-buttons">
-        <button class="add-to-favorites" onclick="addToFavorites('Product Name')">
-          <i class="fas fa-heart"></i>
-        </button>
         <button class="add-to-cart">
           <i class="fas fa-shopping-cart"></i>
         </button>
@@ -217,13 +181,9 @@
     <div class="product-image-wrapper">
       <img src="img/Maybelline Brow Fast Sculpt Gel.jpg" alt="Товар" class="product-image9">
       <div class="overlay-buttons">
-        <button class="add-to-favorites" onclick="addToFavorites('Product Name')">
-          <i class="fas fa-heart"></i>
-        </button>
         <button class="add-to-cart">
           <i class="fas fa-shopping-cart"></i>
         </button>
-        
       </div>
     </div>
     <p class="product-description"> Гель для укладки брів</p>
@@ -234,13 +194,9 @@
     <div class="product-image-wrapper">
       <img src="img/Maybelline Lash Sensation Sky High Mascara.jpg" alt="Товар" class="product-image10">
       <div class="overlay-buttons">
-        <button class="add-to-favorites" onclick="addToFavorites('Product Name')">
-          <i class="fas fa-heart"></i>
-        </button>
         <button class="add-to-cart">
           <i class="fas fa-shopping-cart"></i>
         </button>
-        
       </div>
     </div>
     <p class="product-description"> Туш для довжини та об'єму </p>
@@ -251,13 +207,9 @@
     <div class="product-image-wrapper">
       <img src="img/Maybelline FaceStudio Master Contour Palette.jpg" alt="Товар" class="product-image11">
       <div class="overlay-buttons">
-        <button class="add-to-favorites" onclick="addToFavorites('Product Name')">
-          <i class="fas fa-heart"></i>
-        </button>
         <button class="add-to-cart">
           <i class="fas fa-shopping-cart"></i>
         </button>
-        
       </div>
     </div>
     <p class="product-description"> Палетка для контурингу </p>
@@ -269,13 +221,9 @@
     <div class="product-image-wrapper">
       <img src="img/Maybelline Lifter Gloss.jpg" alt="Товар" class="product-image12">
       <div class="overlay-buttons">
-        <button class="add-to-favorites" onclick="addToFavorites('Product Name')">
-          <i class="fas fa-heart"></i>
-        </button>
         <button class="add-to-cart">
           <i class="fas fa-shopping-cart"></i>
         </button>
-        
       </div>
     </div>
     <p class="product-description"> Блиск для губ із гіалуроновою кислотою</p>
@@ -291,9 +239,6 @@
     <div class="product-image-wrapper">
       <img src="img/Elseve Dream Long Shampoo.jpg" alt="Товар" class="product-image13">
       <div class="overlay-buttons">
-        <button class="add-to-favorites" onclick="addToFavorites('Product Name')">
-          <i class="fas fa-heart"></i>
-        </button>
         <button class="add-to-cart">
           <i class="fas fa-shopping-cart"></i>
         </button>
@@ -309,9 +254,6 @@
     <div class="product-image-wrapper">
       <img src="img/Elseve Dream Long Conditioner.jpg" alt="Товар" class="product-image14">
       <div class="overlay-buttons">
-        <button class="add-to-favorites" onclick="addToFavorites('Product Name')">
-          <i class="fas fa-heart"></i>
-        </button>
         <button class="add-to-cart">
           <i class="fas fa-shopping-cart"></i>
         </button>
@@ -328,9 +270,6 @@
     <div class="product-image-wrapper">
       <img src="img/Elseve Dream Long Steam Mask.jpg" alt="Товар" class="product-image15">
       <div class="overlay-buttons">
-        <button class="add-to-favorites" onclick="addToFavorites('Product Name')">
-          <i class="fas fa-heart"></i>
-        </button>
         <button class="add-to-cart">
           <i class="fas fa-shopping-cart"></i>
         </button>
@@ -346,9 +285,6 @@
     <div class="product-image-wrapper">
       <img src="img/Tangle Teezer Original.jpg" alt="Товар" class="product-image16">
       <div class="overlay-buttons">
-        <button class="add-to-favorites" onclick="addToFavorites('Product Name')">
-          <i class="fas fa-heart"></i>
-        </button>
         <button class="add-to-cart">
           <i class="fas fa-shopping-cart"></i>
         </button>
@@ -364,9 +300,6 @@
     <div class="product-image-wrapper">
       <img src="img/L'Oréal Paris Stylista Heat Protector.jpg" alt="Товар" class="product-image17">
       <div class="overlay-buttons">
-        <button class="add-to-favorites" onclick="addToFavorites('Product Name')">
-          <i class="fas fa-heart"></i>
-        </button>
         <button class="add-to-cart">
           <i class="fas fa-shopping-cart"></i>
         </button>
@@ -382,9 +315,6 @@
     <div class="product-image-wrapper">
       <img src="img/L'Oréal Paris Elnett Satin Hair Spray.jpg" alt="Товар" class="product-image18">
       <div class="overlay-buttons">
-        <button class="add-to-favorites" onclick="addToFavorites('Product Name')">
-          <i class="fas fa-heart"></i>
-        </button>
         <button class="add-to-cart">
           <i class="fas fa-shopping-cart"></i>
         </button>
@@ -405,9 +335,6 @@
     <div class="product-image-wrapper">
       <img src="img/Nivea Creme Soft Shower Gel.jpg" alt="Товар" class="product-image19">
       <div class="overlay-buttons">
-        <button class="add-to-favorites" onclick="addToFavorites('Product Name')">
-          <i class="fas fa-heart"></i>
-        </button>
         <button class="add-to-cart">
           <i class="fas fa-shopping-cart"></i>
         </button>
@@ -423,12 +350,9 @@
     <div class="product-image-wrapper">
       <img src="img/Nivea Rice Scrub Shower.jpg" alt="Товар" class="product-image20">
       <div class="overlay-buttons">
-        <button class="add-to-favorites" onclick="addToFavorites('Product Name')">
-          <i class="fas fa-heart"></i>
-        </button>
-        <button class="add-to-cart">
-          <i class="fas fa-shopping-cart"></i>
-        </button>
+      <button class="add-to-cart">
+       <i class="fas fa-shopping-cart"></i>
+</button>
         
       </div>
     </div>
@@ -440,9 +364,6 @@
     <div class="product-image-wrapper">
       <img src="img/Nivea Nourishing Body Milk.jpg" alt="Товар" class="product-image21">
       <div class="overlay-buttons">
-        <button class="add-to-favorites" onclick="addToFavorites('Product Name')">
-          <i class="fas fa-heart"></i>
-        </button>
         <button class="add-to-cart">
           <i class="fas fa-shopping-cart"></i>
         </button>
@@ -458,10 +379,7 @@
     <div class="product-image-wrapper">
       <img src="img/Nivea Dry Comfort.jpg" alt="Товар" class="product-image22">
       <div class="overlay-buttons">
-        <button class="add-to-favorites" onclick="addToFavorites('Product Name')">
-          <i class="fas fa-heart"></i>
-        </button>
-        <button class="add-to-cart">
+        <button class="add-to-cart" >
           <i class="fas fa-shopping-cart"></i>
         </button>
         
@@ -475,9 +393,6 @@
     <div class="product-image-wrapper">
       <img src="img/Nivea Intensive Hand Cream.jpg" alt="Товар" class="product-image23">
       <div class="overlay-buttons">
-        <button class="add-to-favorites" onclick="addToFavorites('Product Name')">
-          <i class="fas fa-heart"></i>
-        </button>
         <button class="add-to-cart">
           <i class="fas fa-shopping-cart"></i>
         </button>
@@ -493,9 +408,6 @@
     <div class="product-image-wrapper">
       <img src="img/Nivea Sun Protect & Moisture SPF 50.jpg" alt="Товар" class="product-image24">
       <div class="overlay-buttons">
-        <button class="add-to-favorites" onclick="addToFavorites('Product Name')">
-          <i class="fas fa-heart"></i>
-        </button>
         <button class="add-to-cart">
           <i class="fas fa-shopping-cart"></i>
         </button>

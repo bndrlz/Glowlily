@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Кошик</title>
+  <link rel="stylesheet" href="cart.style.css">
+</head>
+<body>
+  <!-- Шапка сайту з іконкою кошика -->
+  <div class="header-right">
+    <a href="cart.html" class="cart-button" title="Перейти в кошик">
+      <i class="fas fa-shopping-cart"></i>
+      (<span id="cart-count">0</span>)
+    </a>
+  </div>
+
+  <!-- Основний контейнер кошика -->
+  <section class="cart-container">
+    <h1 class="cart-title">Ваш кошик</h1>
+    <div class="cart-items"></div>
+
+    <div class="cart-summary">
+      <p>Загальна сума: <span id="total-price">0 грн</span></p>
+      <button id="openSidebarBtn" class="checkout-button">Замовити</button>
+      <button class="clear-cart" onclick="clearCart()">Очистити кошик</button>
+      <button class="back-to-home" onclick="window.location.href='index.html'">На головну</button>
+    </div>
+  </section>
+  
+<!-- Модальне вікно -->
+<div id="orderSidebar" class="sidebar">
+  <div class="sidebar-header">
+    <h2>Оформлення замовлення</h2>
+    <span id="closeSidebarBtn">&times;</span>
+  </div>
+  <form id="orderForm" class="sidebar-form">
+    <label for="firstName">Ім'я</label>
+    <input type="text" id="firstName" name="firstName" required>
+
+    <label for="lastName">Прізвище</label>
+    <input type="text" id="lastName" name="lastName" required>
+
+    <label for="middleName">По-батькові</label>
+    <input type="text" id="middleName" name="middleName">
+
+    <label for="city">Місто</label>
+    <input type="text" id="city" name="city" required>
+
+    <label for="phone">Номер телефону</label>
+    <input type="tel" id="phone" name="phone" required pattern="[0-9+ -]{10,15}">
+
+    <label for="pickupPoint">Точка видачі</label>
+    <input type="text" id="pickupPoint" name="pickupPoint" required>
+
+    <label for="payment">Спосіб оплати</label>
+    <select id="payment" name="payment" required>
+      <option value="">Оберіть спосіб оплати</option>
+      <option value="cash">Готівка</option>
+      <option value="card">Картка онлайн</option>
+    </select>
+
+    <button type="submit" class="submit-button">Підтвердити замовлення</button>
+  </form>
+</div>
+
+<!-- Затемнення фону -->
+<div id="overlay" class="overlay"></div>
+
+ <script>
+    // Завантаження кошика з localStorage
+    function loadCart() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const cartContainer = document.querySelector('.cart-items');
+      cartContainer.innerHTML = '';
+      let total = 0;
+
+      cart.forEach(item => {
+        const cartItem = document.createElement('div');
+        cartItem.className = 'cart-item';
+        cartItem.innerHTML = `
+          <div class="product-image-wrapper">
+            <img src="${item.image}" alt="${item.title}" class="product-image" style="width: 80px; height: 80px; object-fit: cover;">
+          </div>
+          <div class="product-details">
+            <h3>${item.title}</h3>
+            <p>Ціна: ${item.price} грн</p>
+            <div class="quantity-controls">
+              <button onclick="decreaseQuantity('${item.title}')">-</button>
+              <input type="number" value="${item.quantity}" min="1" onchange="changeQuantity('${item.title}', this.value)">
+              <button onclick="increaseQuantity('${item.title}')">+</button>
+            </div>
+            <p>Разом: <span>${item.price * item.quantity} грн</span></p>
+            <button class="remove-item" onclick="removeItem('${item.title}')">Видалити</button>
+          </div>
+        `;
+        cartContainer.appendChild(cartItem);
+        total += item.price * item.quantity;
+      });
+
+      document.getElementById('total-price').innerText = total + ' грн';
+      updateCartCount();
+    }
+
+    // Функція додавання товару до кошика
+    function addToCart(title, price, image) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      let existingProduct = cart.find(item => item.title === title);
+
+      if (existingProduct) {
+        existingProduct.quantity++;
+      } else {
+        cart.push({ title, price, image, quantity: 1 });
+      }
+
+      localStorage.setItem('cart', JSON.stringify(cart));
+      updateCartCount();
+    }
+
+    // Збільшити кількість
+    function increaseQuantity(title) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      let product = cart.find(item => item.title === title);
+
+      if (product) {
+        product.quantity++;
+        localStorage.setItem('cart', JSON.stringify(cart));
+        loadCart();
+      }
+    }
+
+    // Зменшити кількість
+    function decreaseQuantity(title) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      let product = cart.find(item => item.title === title);
+
+      if (product && product.quantity > 1) {
+        product.quantity--;
+        localStorage.setItem('cart', JSON.stringify(cart));
+        loadCart();
+      }
+    }
+
+    // Змінити кількість вручну
+    function changeQuantity(title, quantity) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      let product = cart.find(item => item.title === title);
+
+      if (product) {
+        product.quantity = parseInt(quantity);
+        if (product.quantity < 1) product.quantity = 1;
+        localStorage.setItem('cart', JSON.stringify(cart));
+        loadCart();
+      }
+    }
+
+    // Видалити товар з кошика
+    function removeItem(title) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart = cart.filter(item => item.title !== title);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      loadCart();
+    }
+
+    // Очистити кошик
+    function clearCart() {
+      localStorage.removeItem('cart');
+      loadCart();
+      alert('Ваш кошик очищено!');
+    }
+
+    // Оновити кількість товарів біля іконки кошика
+    function updateCartCount() {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      let count = cart.reduce((sum, item) => sum + item.quantity, 0);
+      document.getElementById('cart-count').innerText = count;
+    }
+
+    // При завантаженні сторінки
+    window.onload = function() {
+      loadCart();
+    };
+
+const openSidebarBtn = document.getElementById('openSidebarBtn');
+const closeSidebarBtn = document.getElementById('closeSidebarBtn');
+const sidebar = document.getElementById('orderSidebar');
+const overlay = document.getElementById('overlay');
+const orderForm = document.getElementById('orderForm');
+
+// Відкрити модальне вікно
+openSidebarBtn.addEventListener('click', () => {
+  sidebar.classList.add('active');
+  overlay.classList.add('active');
+});
+
+// Закрити модальне вікно
+closeSidebarBtn.addEventListener('click', () => {
+  sidebar.classList.remove('active');
+  overlay.classList.remove('active');
+});
+
+overlay.addEventListener('click', () => {
+  sidebar.classList.remove('active');
+  overlay.classList.remove('active');
+});
+
+// При відправці форми
+orderForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  alert('Замовлення успішно оформлене!');
+  sidebar.classList.remove('active');
+  overlay.classList.remove('active');
+  orderForm.reset();
+});
+
+  </script>
+  
+</body>
+</html>
