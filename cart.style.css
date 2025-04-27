@@ -1,3 +1,4 @@
+/* Загальні стилі */
 body {
   background-color: #fff0f5;
   font-family: 'Arial', sans-serif;
@@ -40,7 +41,6 @@ body {
   transform: translateY(-5px);
 }
 
-/* Фото товару */
 .product-image-wrapper {
   width: 100px;
   height: 100px;
@@ -54,7 +54,6 @@ body {
   object-fit: cover;
 }
 
-/* Деталі товару */
 .product-details {
   flex-grow: 1;
 }
@@ -70,7 +69,6 @@ body {
   color: #e91e63;
   font-weight: bold;
 }
-
 
 .quantity {
   display: flex;
@@ -96,7 +94,6 @@ body {
   font-size: 18px;
 }
 
-/* Підсумкова сума для кожного товару */
 .product-total {
   font-size: 18px;
   color: #e91e63;
@@ -104,7 +101,6 @@ body {
   margin-left: 20px;
 }
 
-/* Кнопка видалення товару */
 .remove-item {
   background-color: #f44336;
   color: white;
@@ -120,7 +116,6 @@ body {
   background-color: #d32f2f;
 }
 
-/* Кнопки очищення кошика та повернення на головну */
 .clear-cart, .back-to-home, .checkout-button {
   padding: 12px 25px;
   font-size: 16px;
@@ -132,7 +127,6 @@ body {
   transition: all 0.3s ease;
 }
 
-/* Кнопка замовлення */
 .checkout-button {
   background-color: #e91e63;
   color: white;
@@ -149,9 +143,8 @@ body {
   background-color: #c2185b;
 }
 
-/* Кнопка очищення кошика */
 .clear-cart {
-  background-color: #f58a8e; /* Ніжно фіолетова */
+  background-color: #f58a8e;
   color: white;
 }
 
@@ -166,9 +159,8 @@ body {
   transform: translateY(0);
 }
 
-/* Кнопка повернення на головну */
 .back-to-home {
-  background-color: #f58a8e; /* Ніжно фіолетова */
+  background-color: #f58a8e;
   color: white;
   position: absolute;
   left: 20px;
@@ -186,7 +178,6 @@ body {
   transform: translateY(0);
 }
 
-/* Контейнер для кнопок замовлення та очищення кошика */
 .buttons-container {
   display: flex;
   justify-content: center;
@@ -194,32 +185,11 @@ body {
   margin-top: 40px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* Модальне вікно справа */
 .sidebar {
   position: fixed;
   top: 0;
-  right: -400px; /* Ховаємо за межами */
+  right: -500px;
   width: 400px;
   height: 100%;
   background: #fff;
@@ -230,12 +200,10 @@ body {
   overflow-y: auto;
 }
 
-/* Активне модальне вікно */
 .sidebar.active {
   right: 0;
 }
 
-/* Хедер модального вікна */
 .sidebar-header {
   display: flex;
   justify-content: space-between;
@@ -254,7 +222,6 @@ body {
   color: #e91e63;
 }
 
-/* Стилі форми */
 .sidebar-form label {
   display: block;
   margin-top: 15px;
@@ -272,7 +239,6 @@ body {
   font-size: 16px;
 }
 
-/* Кнопка відправки */
 .submit-button {
   background-color: #e91e63;
   color: white;
@@ -290,7 +256,6 @@ body {
   background-color: #d81b60;
 }
 
-/* Затемнення фону */
 .overlay {
   position: fixed;
   top: 0;
@@ -302,7 +267,168 @@ body {
   z-index: 1000;
 }
 
-/* Активне затемнення */
 .overlay.active {
   display: block;
+}
+
+/* Адаптивна верстка для кошика */
+@media (max-width: 767px) {
+  .cart-container {
+    padding: 10px;
+  }
+
+  .cart-title {
+    font-size: 24px;
+  }
+
+  .cart-items {
+    flex-direction: column;
+  }
+
+  .cart-item {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px;
+  }
+
+  .product-image-wrapper {
+    width: 80px;
+    height: 80px;
+  }
+
+  .product-title {
+    font-size: 18px;
+  }
+
+  .product-price {
+    font-size: 16px;
+  }
+
+  .quantity-button {
+    font-size: 14px;
+  }
+
+  .quantity-input {
+    font-size: 14px;
+  }
+
+  .product-total {
+    font-size: 16px;
+  }
+
+  .remove-item {
+    font-size: 14px;
+  }
+
+  .buttons-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .checkout-button {
+    width: 100%;
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .clear-cart {
+    width: 100%;
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .back-to-home {
+    font-size: 14px;
+  }
+
+  /* Модальне вікно для мобільних пристроїв */
+  .sidebar {
+    width: 90%;  /* Зменшуємо ширину модального вікна до 90% екрану */
+    right: -100%; /* Приховуємо модальне вікно за межами екрану */
+    box-shadow: none; /* Без тіні */
+    border-radius: 0; /* Без заокруглених кутів */
+    transition: right 0.4s ease; /* Анімація для плавного відкриття */
+    position: fixed;  /* Встановлюємо на фіксовану позицію */
+    top: 0; /* Верхня межа */
+    bottom: 0; /* Нижня межа */
+  }
+
+  /* Відображення модального вікна при активації */
+  .sidebar.active {
+    right: 0; /* Відображаємо модальне вікно */
+  }
+
+  /* Відображення overlay */
+  .overlay {
+    display: none; /* За замовчуванням overlay приховано */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Напівпрозорий темний фон */
+    z-index: 998; /* Для правильного розташування поверх інших елементів */
+  }
+
+  /* Відображаємо overlay, коли модальне вікно активне */
+  .overlay.active {
+    display: block; /* Показуємо overlay */
+  }
+
+  .sidebar-header h2 {
+    font-size: 20px; /* Зменшуємо заголовок */
+  }
+
+  .sidebar-form label {
+    font-size: 16px; /* Зменшуємо шрифт для полів */
+  }
+
+  .sidebar-form input,
+  .sidebar-form select {
+    font-size: 14px; /* Меньший шрифт для інпутів */
+    padding: 8px;
+  }
+
+  .submit-button {
+    font-size: 16px; /* Зменшуємо розмір кнопки */
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cart-title {
+    font-size: 20px;
+  }
+
+  .cart-item {
+    padding: 10px;
+  }
+
+  .product-title {
+    font-size: 16px;
+  }
+
+  .product-price {
+    font-size: 14px;
+  }
+
+  .quantity-button {
+    font-size: 12px;
+  }
+
+  .quantity-input {
+    font-size: 12px;
+  }
+
+  .product-total {
+    font-size: 14px;
+  }
+
+  .buttons-container {
+    gap: 10px;
+  }
+
+  .sidebar {
+    width: 80%;  /* Зменшуємо ширину до 80% на дуже малих екранах */
+  }
 }

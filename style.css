@@ -1,12 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
 }
-
 body {
   background-color: #fffaf5;
   color: #3d3d3d;
@@ -24,18 +22,15 @@ body {
   z-index: 1000;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
-
 /* Секції */
 .header-left, .header-center, .header-right {
   flex: 1;
   display: flex;
   align-items: center;
 }
-
 .header-center {
   justify-content: center;
 }
-
 /* Логотип */
 .logo {
   font-size: 2.2rem;
@@ -479,30 +474,23 @@ body {
 
 /* Поле для вводу тексту */
 #chat-input {
-  width: 100%;
-  padding: 12px;
-  margin-top: 10px;
+  width: 100%; padding: 12px; margin-top: 10px;
   border: 1px solid #ff4081;
-  border-radius: 20px;
-  font-size: 14px;
-  color: #333;
-  background-color: #f9f9f9;
+  border-radius: 20px;  font-size: 14px;
+  color: #333;background-color: #f9f9f9;
 }
 
 #chat-input:focus {
-  outline: none;
-  border-color: #e91e63;
+  outline: none; border-color: #e91e63;
 }
 
 /* Загальна анімація */
 #chat-box.open {
-  display: flex;
-  transform: scale(1);
+  display: flex; transform: scale(1);
 }
 
 #chat-box.close {
-  display: none;
-  transform: scale(0.9);
+  display: none; transform: scale(0.9);
 }
 
 /* Футер */
@@ -513,14 +501,11 @@ body {
   color: #fff;
   padding: 50px 20px;
   font-family: 'Poppins', sans-serif;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: flex; flex-wrap: wrap; justify-content: center;
   gap: 40px;
   text-align: center;
   box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.1);
-  border-top-left-radius: 40px;
-  border-top-right-radius: 40px;
+  border-top-left-radius: 40px; border-top-right-radius: 40px;
 }
 
 @keyframes gradientShift {
@@ -530,39 +515,23 @@ body {
 }
 
 .footer-block {
-  flex: 1 1 200px;
-  min-width: 200px;
+  flex: 1 1 200px; min-width: 200px;
 }
 
 .footer-block h4 {
-  font-size: 24px;
-  margin-bottom: 15px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: #ffe4f5;
-  position: relative;
+  font-size: 24px;  margin-bottom: 15px;  text-transform: uppercase; letter-spacing: 1px; color: #ffe4f5;  position: relative;
 }
 
 .footer-block h4::after {
-  content: "";
-  display: block;
-  width: 40px;
-  height: 2px;
-  background-color: #fff;
-  margin: 10px auto 0;
-  border-radius: 1px;
+  content: "";  display: block; width: 40px; height: 2px; background-color: #fff; margin: 10px auto 0; border-radius: 1px;
 }
 
 .footer-block ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  list-style: none; padding: 0; margin: 0;
 }
 
 .footer-block ul li {
-  font-size: 16px;
-  margin: 8px 0;
-  transition: color 0.3s ease;
+  font-size: 16px; margin: 8px 0; transition: color 0.3s ease;
 }
 
 .footer-block ul li:hover {
@@ -570,8 +539,7 @@ body {
 }
 
 .footer-block ul li a {
-  color: inherit;
-  text-decoration: none;
+  color: inherit; text-decoration: none;
 }
 
 .footer-block ul li a:hover {
@@ -579,19 +547,136 @@ body {
 }
 
 .footer .social-icons {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin-top: 30px;
+  display: flex; justify-content: center;  gap: 20px; flex-wrap: wrap; margin-top: 30px;
 }
 
 .footer .social-icons a {
-  color: #fff;
-  font-size: 28px;
-  transition: color 0.3s ease;
-}
+  color: #fff; font-size: 28px; transition: color 0.3s ease;}
 
 .footer .social-icons a:hover {
-  color: #ffe4f5; 
+  color: #ffe4f5;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* Адаптив для телефонів */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
+  .header-left, .header-center, .header-right {
+    flex: unset;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .logo {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  .search-container {
+    max-width: 100%;
+    margin: 0.5rem 0;
+  }
+
+  .category-hero {
+    height: 250px;
+  }
+
+  .category-hero h2 {
+    font-size: 2rem;
+  }
+
+  .categories {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .category-section {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+
+  .product-card {
+    padding-bottom: 1rem;
+  }
+
+  .product-image-wrapper img {
+    height: 200px;
+  }
+
+  .product-title {
+    font-size: 1.1rem;
+  }
+
+  .product-description {
+    font-size: 0.9rem;
+  }
+
+  .product-price {
+    font-size: 1rem;
+  }
+
+  #chat-box {
+    width: 90%;
+    right: 5%;
+    bottom: 10px;
+    padding: 15px;
+    max-height: 400px;
+  }
+
+  .add-to-cart {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
+/* Дуже маленькі екрани */
+@media (max-width: 480px) {
+  .categories {
+    grid-template-columns: 1fr;
+  }
+
+  .category img {
+    height: 150px;
+  }
+
+  .product-image-wrapper img {
+    height: 180px;
+  }
+
+  .header-icon {
+    font-size: 1.5rem;
+    margin-left: 0.8rem;
+  }
+
+  .search-container input {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .search-container button {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+  }
 }
