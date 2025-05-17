@@ -17,7 +17,7 @@ form.addEventListener("submit", function(event) {
   });
 });
 
-// Прокрутка до категорії
+// Прокрутка до потрібної категорії
 document.addEventListener("DOMContentLoaded", function () {
   const categories = document.querySelectorAll(".category");
 
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// Відкриття і закриття чату
+// Відкрити/закрити чат
 document.getElementById("chat-button").addEventListener("click", () => {
   document.getElementById("chat-box").style.display = "flex";
 });
@@ -71,7 +71,7 @@ document.getElementById("chat-input").addEventListener("keypress", function (e) 
   }
 });
 
-// Функція відповіді консультанта
+// Відповіді консультанта
 function getConsultantResponse(message) {
   const lowerCaseMessage = message.toLowerCase();
 
@@ -164,4 +164,49 @@ openCartBtn.addEventListener('click', () => {
 
 closeCartBtn.addEventListener('click', () => {
   cartModal.style.display = 'none';
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  fetch('store_db.json')
+    .then(response => response.json())
+    .then(data => {
+      const container = document.getElementById('products-container');
+      
+      // Перебираємо категорії
+      data.categories.forEach(category => {
+        // Для кожної категорії створюємо заголовок
+        const categoryTitle = document.createElement('h2');
+        categoryTitle.textContent = category.name;
+        container.appendChild(categoryTitle);
+        
+        // Створюємо розділ для продуктів категорії
+        const categorySection = document.createElement('div');
+        categorySection.className = 'category-section';
+        categorySection.id = category.id;
+        container.appendChild(categorySection);
+        
+        // Перебираємо продукти в категорії
+        category.products.forEach(product => {
+          const card = document.createElement('div');
+          card.className = 'product-card ' + category.id;
+          card.innerHTML = `
+            <div class="product-image-wrapper">
+              <img src="${product.image}" alt="${product.title}">
+              <div class="overlay-buttons">
+                <button class="add-to-cart">
+                  <i class="fas fa-shopping-cart"></i>
+                </button>
+              </div>
+            </div>
+            <h3 class="product-title">${product.title}</h3>
+            <p class="product-description">${product.description}</p>
+            <p class="product-price">${product.price}</p>
+          `;
+          categorySection.appendChild(card);
+        });
+      });
+    })
+    .catch(error => {
+      console.error('Помилка завантаження даних:', error);
+    });
 });

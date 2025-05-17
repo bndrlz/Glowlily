@@ -1,0 +1,172 @@
+{
+  "categories": [
+    {
+      "name": "Обличчя",
+      "id": "face",
+      "products": [
+        {
+          "title": "Bioderma Sensibio H20",
+          "description": "Міцелярна вода для чутливої шкіри",
+          "price": "520грн",
+          "image": "img/bioderma Sensibio H20.jpg"
+        },
+        {
+          "title": "Bioderma Hydrabio Tonique",
+          "description": "Зволожуючий тонік для обличчя",
+          "price": "490грн",
+          "image": "img/bioderma Hydrabio Tonique.jpg"
+        },
+        {
+          "title": "Bioderma Hydrabio Gel-Creme",
+          "description": "Легкий крем для зволоження шкіри",
+          "price": "620грн",
+          "image": "img/Bioderma Hydrabio Gel-Creme.jpg"
+        },
+        {
+          "title": "Bioderma Hydrabio Serum",
+          "description": "Інтенсивна зволожуюча сироватка",
+          "price": "702грн",
+          "image": "img/Bioderma Hydrabio Serum.jpg"
+        },
+        {
+          "title": "Bioderma Photoderm Max Aquafluide SPF 50+",
+          "description": "Сонцезахисний крем для обличчя",
+          "price": "597грн",
+          "image": "img/Bioderma photoderm Max SPF.jpg"
+        },
+        {
+          "title": "Bioderma Sensibio Mask",
+          "description": "Заспокійлива маска для обличчя",
+          "price": "625грн",
+          "image": "img/bioderma Sensibio Mask.jpg"
+        }
+      ]
+    },
+    {
+      "name": "Макіяж",
+      "id": "makeup",
+      "products": [
+        {
+          "title": "Maybelline Fit Me Primer",
+          "description": "База під макіяж для матового ефекту",
+          "price": "224грн",
+          "image": "img/Maybelline Fit Me Primer.jpg"
+        },
+        {
+          "title": "Maybelline Fit Me Matte + Poreless Foundation",
+          "description": "Матуючий тональний крем",
+          "price": "280грн",
+          "image": "img/Maybelline Fit Me Matte + Poreless Foundation.jpg"
+        },
+        {
+          "title": "Maybelline Brow Fast Sculpt Gel",
+          "description": "Гель для укладки брів",
+          "price": "225грн",
+          "image": "img/Maybelline Brow Fast Sculpt Gel.jpg"
+        },
+        {
+          "title": "Maybelline Lash Sensation Sky High Mascara",
+          "description": "Туш для довжини та об'єму",
+          "price": "391грн",
+          "image": "img/Maybelline Lash Sensation Sky High Mascara.jpg"
+        },
+        {
+          "title": "Maybelline FaceStudio Master Contour Palette",
+          "description": "Палетка для контурингу",
+          "price": "302грн",
+          "image": "img/Maybelline FaceStudio Master Contour Palette.jpg"
+        },
+        {
+          "title": "Maybelline Lifter Gloss",
+          "description": "Блиск для губ із гіалуроновою кислотою",
+          "price": "263грн",
+          "image": "img/Maybelline Lifter Gloss.jpg"
+        }
+      ]
+    },
+    {
+      "name": "Волосся",
+      "id": "hair",
+      "products": [
+        {
+          "title": "Elseve Dream Long Shampoo",
+          "description": "Шампунь для відновлення довжини волосся",
+          "price": "234грн",
+          "image": "img/Elseve Dream Long Shampoo.jpg"
+        },
+        {
+          "title": "Elseve Dream Long Conditioner",
+          "description": "Бальзам для довгого волосся",
+          "price": "127грн",
+          "image": "img/Elseve Dream Long Conditioner.jpg"
+        },
+        {
+          "title": "Elseve Dream Long Steam Mask",
+          "description": "Парова маска для глибокого догляду",
+          "price": "229грн",
+          "image": "img/Elseve Dream Long Steam Mask.jpg"
+        },
+        {
+          "title": "Tangle Teezer Original",
+          "description": "Щітка для легкого розчісування волосся",
+          "price": "599грн",
+          "image": "img/Tangle Teezer Original.jpg"
+        },
+        {
+          "title": "L'Oréal Paris Stylista Heat Protector",
+          "description": "Термозахист для волосся",
+          "price": "183грн",
+          "image": "img/L'Oréal Paris Stylista Heat Protector.jpg"
+        },
+        {
+          "title": "L'Oréal Paris Elnett Satin Hair Spray",
+          "description": "Лак для волосся сильної фіксації",
+          "price": "300грн",
+          "image": "img/L'Oréal Paris Elnett Satin Hair Spray.jpg"
+        }
+      ]
+    },
+    {
+      "name": "Тіло",
+      "id": "body",
+      "products": [
+        {
+          "title": "Nivea Creme Soft Shower Gel",
+          "description": "Ніжний гель для душу",
+          "price": "149грн",
+          "image": "img/Nivea Creme Soft Shower Gel.jpg"
+        },
+        {
+          "title": "Nivea Rice Scrub Shower",
+          "description": "Скраб-гель для душу",
+          "price": "100грн",
+          "image": "img/Nivea Rice Scrub Shower.jpg"
+        },
+        {
+          "title": "Nivea Nourishing Body Milk",
+          "description": "Живильне молочко для тіла",
+          "price": "141грн",
+          "image": "img/Nivea Nourishing Body Milk.jpg"
+        },
+        {
+          "title": "Nivea Dry Comfort",
+          "description": "Антиперспірант",
+          "price": "75грн",
+          "image": "img/Nivea Dry Comfort.jpg"
+        },
+        {
+          "title": "Nivea Intensive Hand Cream",
+          "description": "Інтенсивний крем для рук",
+          "price": "74грн",
+          "image": "img/Nivea Intensive Hand Cream.jpg"
+        },
+        {
+          "title": "Nivea Sun Protect & Moisture SPF 50",
+          "description": "Сонцезахист для тіла",
+          "price": "300грн",
+          "image": "img/Nivea Sun Protect & Moisture SPF 50.jpg"
+        }
+      ]
+    }
+  ]
+}
