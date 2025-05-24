@@ -116,97 +116,148 @@ function updateCartCount() {
 // Завантаження кількості товарів при відкритті сторінки
 window.onload = updateCartCount;
 
-// Обробка кліку "Додати в кошик"
-const addToCartButtons = document.querySelectorAll('.add-to-cart');
-
-addToCartButtons.forEach(button => {
-  button.addEventListener('click', function() {
+document.addEventListener('click', function(e) {
+  if (e.target.closest('.add-to-cart')) {
+    const button = e.target.closest('.add-to-cart');
     const productCard = button.closest('.product-card');
     const title = productCard.querySelector('.product-title').innerText;
     const priceText = productCard.querySelector('.product-price').innerText;
-    const price = parseInt(priceText);
+    const price = parseInt(priceText); // Можливо, треба видаляти "грн"
     const image = productCard.querySelector('img').getAttribute('src');
 
     addToCart(title, price, image);
-  });
+  }
 });
 
-// Відкриття та закриття модального кошика
-const openCartBtn = document.querySelector('.open-cart-btn');
-const closeCartBtn = document.querySelector('.close-cart-btn');
-const cartModal = document.querySelector('.cart-modal');
-const cartItemsList = document.querySelector('.cart-items-list');
-const cartTotal = document.querySelector('.cart-total');
+// // Обробка кліку "Додати в кошик"
+// const addToCartButtons = document.querySelectorAll('.add-to-cart');
 
-openCartBtn.addEventListener('click', () => {
-  cartModal.style.display = 'flex';
+// addToCartButtons.forEach(button => {
+//   button.addEventListener('click', function() {
+//     const productCard = button.closest('.product-card');
+//     const title = productCard.querySelector('.product-title').innerText;
+//     const priceText = productCard.querySelector('.product-price').innerText;
+//     const price = parseInt(priceText);
+//     const image = productCard.querySelector('img').getAttribute('src');
 
-  // Очищаємо список
-  cartItemsList.innerHTML = '';
-  let total = 0;
-  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+//     addToCart(title, price, image);
+//   });
+// });
 
-  cart.forEach(item => {
-    const cartItemDiv = document.createElement('div');
-    cartItemDiv.classList.add('cart-item');
-    cartItemDiv.innerHTML = `
-      <img src="${item.image}" alt="${item.title}" style="width: 50px; height: 50px; object-fit: cover; margin-right: 10px;">
-      <span>${item.title} (x${item.quantity})</span>
-      <span>${item.price * item.quantity} грн</span>
-    `;
-    cartItemsList.appendChild(cartItemDiv);
 
-    total += item.price * item.quantity;
-  });
+// // Відкриття та закриття модального кошика
+// const openCartBtn = document.querySelector('.open-cart-btn');
+// const closeCartBtn = document.querySelector('.close-cart-btn');
+// const cartModal = document.querySelector('.cart-modal');
+// const cartItemsList = document.querySelector('.cart-items-list');
+// const cartTotal = document.querySelector('.cart-total');
 
-  cartTotal.textContent = `Загальна сума: ${total} грн`;
-});
+// openCartBtn.addEventListener('click', () => {
+//   cartModal.style.display = 'flex';
 
-closeCartBtn.addEventListener('click', () => {
-  cartModal.style.display = 'none';
-});
+//   // Очищаємо список
+//   cartItemsList.innerHTML = '';
+//   let total = 0;
+//   let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+//   cart.forEach(item => {
+//     const cartItemDiv = document.createElement('div');
+//     cartItemDiv.classList.add('cart-item');
+//     cartItemDiv.innerHTML = `
+//       <img src="${item.image}" alt="${item.title}" style="width: 50px; height: 50px; object-fit: cover; margin-right: 10px;">
+//       <span>${item.title} (x${item.quantity})</span>
+//       <span>${item.price * item.quantity} грн</span>
+//     `;
+//     cartItemsList.appendChild(cartItemDiv);
+
+//     total += item.price * item.quantity;
+//   });
+
+//   cartTotal.textContent = `Загальна сума: ${total} грн`;
+// });
+
+// closeCartBtn.addEventListener('click', () => {
+//   cartModal.style.display = 'none';
+// });
+// document.addEventListener('DOMContentLoaded', function() {
+//   fetch('store_db.json')
+//     .then(response => response.json())
+//     .then(data => {
+//       const container = document.getElementById('products-container');
+      
+//       // Перебираємо категорії
+//       data.categories.forEach(category => {
+//         // Для кожної категорії створюємо заголовок
+//         const categoryTitle = document.createElement('h2');
+//         categoryTitle.textContent = category.name;
+//         container.appendChild(categoryTitle);
+        
+//         // Створюємо розділ для продуктів категорії
+//         const categorySection = document.createElement('div');
+//         categorySection.className = 'category-section';
+//         categorySection.id = category.id;
+//         container.appendChild(categorySection);
+        
+//         // Перебираємо продукти в категорії
+//         category.products.forEach(product => {
+//           const card = document.createElement('div');
+//           card.className = 'product-card ' + category.id;
+//           card.innerHTML = `
+//             <div class="product-image-wrapper">
+//               <img src="${product.image}" alt="${product.title}">
+//               <div class="overlay-buttons">
+//                 <button class="add-to-cart">
+//                   <i class="fas fa-shopping-cart"></i>
+//                 </button>
+//               </div>
+//             </div>
+//             <h3 class="product-title">${product.title}</h3>
+//             <p class="product-description">${product.description}</p>
+//             <p class="product-price">${product.price}</p>
+//           `;
+//           categorySection.appendChild(card);
+//         });
+//       });
+//     })
+//     .catch(error => {
+//       console.error('Помилка завантаження даних:', error);
+//     });
+// });
+
+
 
 document.addEventListener('DOMContentLoaded', function() {
   fetch('store_db.json')
-    .then(response => response.json())
-    .then(data => {
-      const container = document.getElementById('products-container');
-      
-      // Перебираємо категорії
-      data.categories.forEach(category => {
-        // Для кожної категорії створюємо заголовок
-        const categoryTitle = document.createElement('h2');
-        categoryTitle.textContent = category.name;
-        container.appendChild(categoryTitle);
-        
-        // Створюємо розділ для продуктів категорії
-        const categorySection = document.createElement('div');
-        categorySection.className = 'category-section';
-        categorySection.id = category.id;
-        container.appendChild(categorySection);
-        
-        // Перебираємо продукти в категорії
-        category.products.forEach(product => {
-          const card = document.createElement('div');
-          card.className = 'product-card ' + category.id;
-          card.innerHTML = `
-            <div class="product-image-wrapper">
-              <img src="${product.image}" alt="${product.title}">
-              <div class="overlay-buttons">
-                <button class="add-to-cart">
-                  <i class="fas fa-shopping-cart"></i>
-                </button>
-              </div>
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Не вдалося завантажити файл');
+    }
+    return response.json(); // Це автоматично парсить JSON
+  })
+  .then(categories => {
+        console.log(categories); // Тут ви отримуєте об'єкт з JSON
+
+    categories.forEach((category) => {
+      category.products.forEach(product => {
+                  let productHTML = `<div class="product-card ${category.id}">
+          <h3 class="product-title">${product.title}</h3>
+          <div class="product-image-wrapper">
+            <img src="${product.image}" alt="Товар" class="product-image1">
+            <div class="overlay-buttons">
+              <button class="add-to-cart">
+                <i class="fas fa-shopping-cart"></i>
+              </button>
             </div>
-            <h3 class="product-title">${product.title}</h3>
-            <p class="product-description">${product.description}</p>
-            <p class="product-price">${product.price}</p>
-          `;
-          categorySection.appendChild(card);
-        });
-      });
+          </div>
+          <p class="product-description">${product.description}</p>
+          <p class="product-price">${product.price}</p>
+        </div>`
+    
+            document.getElementById(`${category.id}`).insertAdjacentHTML("beforeend", productHTML);
+                 });
     })
-    .catch(error => {
-      console.error('Помилка завантаження даних:', error);
-    });
-});
+  })
+})
+  .catch(error => {
+    console.error('Помилка:', error);
+  });
