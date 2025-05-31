@@ -129,103 +129,6 @@ document.addEventListener('click', function(e) {
   }
 });
 
-// // Обробка кліку "Додати в кошик"
-// const addToCartButtons = document.querySelectorAll('.add-to-cart');
-
-// addToCartButtons.forEach(button => {
-//   button.addEventListener('click', function() {
-//     const productCard = button.closest('.product-card');
-//     const title = productCard.querySelector('.product-title').innerText;
-//     const priceText = productCard.querySelector('.product-price').innerText;
-//     const price = parseInt(priceText);
-//     const image = productCard.querySelector('img').getAttribute('src');
-
-//     addToCart(title, price, image);
-//   });
-// });
-
-
-// // Відкриття та закриття модального кошика
-// const openCartBtn = document.querySelector('.open-cart-btn');
-// const closeCartBtn = document.querySelector('.close-cart-btn');
-// const cartModal = document.querySelector('.cart-modal');
-// const cartItemsList = document.querySelector('.cart-items-list');
-// const cartTotal = document.querySelector('.cart-total');
-
-// openCartBtn.addEventListener('click', () => {
-//   cartModal.style.display = 'flex';
-
-//   // Очищаємо список
-//   cartItemsList.innerHTML = '';
-//   let total = 0;
-//   let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-//   cart.forEach(item => {
-//     const cartItemDiv = document.createElement('div');
-//     cartItemDiv.classList.add('cart-item');
-//     cartItemDiv.innerHTML = `
-//       <img src="${item.image}" alt="${item.title}" style="width: 50px; height: 50px; object-fit: cover; margin-right: 10px;">
-//       <span>${item.title} (x${item.quantity})</span>
-//       <span>${item.price * item.quantity} грн</span>
-//     `;
-//     cartItemsList.appendChild(cartItemDiv);
-
-//     total += item.price * item.quantity;
-//   });
-
-//   cartTotal.textContent = `Загальна сума: ${total} грн`;
-// });
-
-// closeCartBtn.addEventListener('click', () => {
-//   cartModal.style.display = 'none';
-// });
-// document.addEventListener('DOMContentLoaded', function() {
-//   fetch('store_db.json')
-//     .then(response => response.json())
-//     .then(data => {
-//       const container = document.getElementById('products-container');
-      
-//       // Перебираємо категорії
-//       data.categories.forEach(category => {
-//         // Для кожної категорії створюємо заголовок
-//         const categoryTitle = document.createElement('h2');
-//         categoryTitle.textContent = category.name;
-//         container.appendChild(categoryTitle);
-        
-//         // Створюємо розділ для продуктів категорії
-//         const categorySection = document.createElement('div');
-//         categorySection.className = 'category-section';
-//         categorySection.id = category.id;
-//         container.appendChild(categorySection);
-        
-//         // Перебираємо продукти в категорії
-//         category.products.forEach(product => {
-//           const card = document.createElement('div');
-//           card.className = 'product-card ' + category.id;
-//           card.innerHTML = `
-//             <div class="product-image-wrapper">
-//               <img src="${product.image}" alt="${product.title}">
-//               <div class="overlay-buttons">
-//                 <button class="add-to-cart">
-//                   <i class="fas fa-shopping-cart"></i>
-//                 </button>
-//               </div>
-//             </div>
-//             <h3 class="product-title">${product.title}</h3>
-//             <p class="product-description">${product.description}</p>
-//             <p class="product-price">${product.price}</p>
-//           `;
-//           categorySection.appendChild(card);
-//         });
-//       });
-//     })
-//     .catch(error => {
-//       console.error('Помилка завантаження даних:', error);
-//     });
-// });
-
-
-
 document.addEventListener('DOMContentLoaded', function() {
   fetch('store_db.json')
   .then(response => {
@@ -258,6 +161,40 @@ document.addEventListener('DOMContentLoaded', function() {
     })
   })
 })
-  .catch(error => {
-    console.error('Помилка:', error);
-  });
+
+  console.log('Скрипт завантажено');
+
+function toggleTheme() {
+    const body = document.body;
+
+    if (body.classList.contains('dark-theme')) {
+        body.classList.remove('dark-theme');
+        localStorage.setItem('theme', 'light');
+        console.log('Перемкнуто на світлу тему');
+    } else {
+        body.classList.add('dark-theme');
+        localStorage.setItem('theme', 'dark');
+        console.log('Перемкнуто на темну тему');
+    }
+}
+
+function loadSavedTheme() {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-theme');
+    }
+}
+
+function init() {
+    loadSavedTheme();
+
+    const button = document.getElementById('toggle-theme');
+    if (button) {
+        button.addEventListener('click', toggleTheme);
+    } else {
+        console.warn('Кнопка не знайдена!');
+    }
+}
+
+document.addEventListener('DOMContentLoaded', init);
+

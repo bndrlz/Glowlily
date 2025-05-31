@@ -558,20 +558,6 @@ body {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   /* Адаптив для телефонів */
 @media (max-width: 768px) {
   .header {
@@ -679,4 +665,222 @@ body {
     font-size: 0.9rem;
     padding: 0.4rem 0.8rem;
   }
+}
+
+
+
+/* Кнопка перемикача теми */
+.toggle-theme-button {
+  background: linear-gradient(135deg, #ff8fa3, #ffb6b9);
+  border: none;
+  border-radius: 25px;
+  padding: 10px 15px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  margin-left: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(255, 143, 163, 0.3);
+}
+
+.toggle-theme-button:hover {
+  background: linear-gradient(135deg, #ff6f91, #ff8fa3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 143, 163, 0.4);
+}
+
+
+
+
+
+/* ТЕМНА ТЕМА */
+body.dark-theme {
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+}
+
+/* Header в темній темі */
+body.dark-theme .header {
+  background-color: #2d2d2d;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+body.dark-theme .logo {
+  color: #ff8fa3;
+}
+
+/* Пошук в темній темі */
+body.dark-theme .search-container input {
+  background-color: #3d3d3d;
+  border: 1px solid #555;
+  color: #e0e0e0;
+}
+
+body.dark-theme .search-container input::placeholder {
+  color: #aaa;
+}
+
+body.dark-theme .btn-search {
+  background-color: #ff8fa3;
+  border: 1px solid #ff8fa3;
+}
+
+body.dark-theme .btn-search:hover {
+  background-color: #ff6f91;
+}
+
+/* Іконки в header */
+body.dark-theme .header-icon {
+  color: #ff8fa3;
+}
+
+body.dark-theme .header-icon:hover {
+  color: #ff6f91;
+}
+
+/* Кнопка кошика в темній темі */
+body.dark-theme .cart-button {
+  background-color: #ff8fa3;
+  color: white;
+}
+
+body.dark-theme .cart-button:hover {
+  background-color: #ff6f91;
+}
+
+/* Hero banner в темній темі */
+body.dark-theme .category-hero {
+  color: #e0e0e0;
+}
+
+body.dark-theme .category-hero::before {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+/* Категорії в темній темі */
+body.dark-theme .category {
+  background-color: #2d2d2d;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-theme .category p {
+  color: #e0e0e0;
+}
+
+/* Картки товарів в темній темі */
+body.dark-theme .product-card {
+  background: #2d2d2d;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-theme .product-card:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-theme .product-image-wrapper {
+  border-bottom: 1px solid #444;
+}
+
+body.dark-theme .product-title {
+  color: #e0e0e0;
+}
+
+body.dark-theme .product-description {
+  color: #bbb;
+}
+
+body.dark-theme .product-price {
+  color: #ff8fa3;
+}
+
+/* Кнопки в темній темі */
+body.dark-theme .add-to-cart {
+  background-color: #ff8fa3;
+}
+
+body.dark-theme .add-to-cart:hover {
+  background-color: #ff6f91;
+}
+
+body.dark-theme .btn {
+  background: linear-gradient(to right, #ff8fa3, #b97aa3);
+  color: white;
+}
+
+body.dark-theme .btn:hover {
+  background: linear-gradient(to right, #ff6f91, #a66694);
+}
+
+/* Іконки overlay в темній темі */
+body.dark-theme .icons i, 
+body.dark-theme .icon-btn {
+  background-color: #3d3d3d;
+  color: #ff8fa3;
+}
+
+body.dark-theme .icons i:hover, 
+body.dark-theme .icon-btn:hover {
+  background-color: #555;
+  color: #ff6f91;
+}
+
+/* Чат в темній темі */
+body.dark-theme #chat-box {
+  background-color: #2d2d2d;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-theme #chat-header {
+  color: #ff8fa3;
+}
+
+body.dark-theme #chat-close {
+  background-color: #ff8fa3;
+}
+
+body.dark-theme #chat-close:hover {
+  background-color: #ff6f91;
+}
+
+body.dark-theme #chat-button {
+  background-color: #ff8fa3;
+}
+
+body.dark-theme #chat-button:hover {
+  background-color: #ff6f91;
+}
+
+body.dark-theme #chat-messages p.user {
+  background-color: #3d3d3d;
+  color: #ff8fa3;
+}
+
+body.dark-theme #chat-messages p.consultant {
+  background-color: #444;
+  color: #e0e0e0;
+}
+
+body.dark-theme #chat-input {
+  background-color: #3d3d3d;
+  border: 1px solid #555;
+  color: #e0e0e0;
+}
+
+body.dark-theme #chat-input:focus {
+  border-color: #ff8fa3;
+}
+
+/* Footer в темній темі */
+body.dark-theme .footer {
+  background: linear-gradient(135deg, #333, #2d2d2d, #1a1a1a, #0d0d0d);
+}
+
+/* Кнопка теми в темній темі */
+body.dark-theme .toggle-theme-button {
+  background: linear-gradient(135deg, #555, #666);
+  color: #ff8fa3;
+}
+
+body.dark-theme .toggle-theme-button:hover {
+  background: linear-gradient(135deg, #666, #777);
 }
